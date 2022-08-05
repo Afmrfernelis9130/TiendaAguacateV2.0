@@ -158,9 +158,25 @@ body{
 .username-menu .img-carrito {
     width: 25px;
     height:25px;
-    transform: translateY(18px);
+    transform: translateY(22px);
     
 }
+
+
+.username-menu .amount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hospital-green);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    
+}
+
 
 
 .username-menu .img-profile {
