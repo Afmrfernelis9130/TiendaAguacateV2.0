@@ -19,57 +19,53 @@ body{
     font-family: 'Quicksand', sans-serif;
     margin: 0;
 	padding: 0;
-    padding-top: 80px
+    
 }
 
 
 
-
+/* Ul Menu */
 .ul-menu{
     display: flex;
-    justify-content:space-between;
+    justify-content:center;
     margin-top: 0rem;
     box-shadow: 0 1px 2px 0 rgba(34,36,38,.15); 
     align-items: center;
 	padding: 10px 10px;
     height: 50px;
 	line-height: 1.65em;
-    margin-bottom: 100px;
     position: fixed;
     width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
 	left: 0; /* Posicionamos la cabecera al lado izquierdo */
 	top: 0; /* Posicionamos la cabecera pegada arriba y abajo */
     background-color: white;
-    
-     
-
+    transition: all 0.6s ease;
 
 }
 
-
-
-
-.img-logo {
+/*Logo*/
+.ul-menu .img-logo {
     width: 260px;
     height:150px;
     
 }
 
+
+.about-menu{
+    margin-left: 40px;
+}
+
 .about-menu ul{
     display: flex;
-    justify-content: flex-end;
     padding: 0;
-    margin-right: 400px;
+    margin-right: 250px;
     
 }
 
-
 .about-menu ul li {
-    display: flex;
     text-decoration: none;
     list-style: none;
-    padding: 12px;
-    
+    padding: 30px; 
     
     
 }
@@ -77,10 +73,9 @@ body{
 .about-menu ul li a{
     text-decoration: none;
     color: #000000;
-    width: 120px;
     text-align: center;
-    border-radius: 5px;
-    font-weight: 100;
+    border-radius: 7px;
+    font-weight: bold;
     
 }
 
@@ -96,7 +91,7 @@ body{
     display: flex;
     position: absolute;
     padding: 5px;
-    right: 350px;
+    right: 340px;
 }
 
 .search-menu input {
@@ -121,61 +116,63 @@ body{
       color: var(--white);
       position: absolute;
       top: 0px;
-      right: 0px;
+      right: -4px;
       border-radius: 50%;
       font-size: 23px;
       cursor: pointer;
       
 }
 
-
-
 .search-menu:hover input {
     width: 240px;
 }
 
+/*About Menu*/
 .username-menu{
     display: flex;
     justify-content: space-around;
     width: 150px;
-    margin-right: 40px;
+    margin-right: 20px;
+    transform: translateY(-10px);
+
+   
        
    }
 
-  .username-menu .navbar-imgprofile {
+.username-menu .navbar-imgprofile {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0px;
+   
+   
   
   }
    
-   .username-menu .navbar-imgprofile p {
+ .username-menu .navbar-imgprofile p {
        font-size: 12px;
-       padding: 0;
+       height: 1px;
+       padding-top: -20px;
        
    }
 
-
-   .username-menu .img-carrito {
+.username-menu .img-carrito {
     width: 25px;
     height:25px;
+    transform: translateY(18px);
     
 }
 
 .username-menu .img-profile {
     width: 27px;
     height:27px;
-    padding: 0;
+    padding: 0px;
+    transform: translateY(18px);
 
     
 }
 
-
-.username-menu h2 {
-   font-size: 15px;
-   line-height: 20px;
-   font-weight: 400;
-}
+/*------------------------------------------ */
 
 .img-aguacate {
     width: 180px;
@@ -247,6 +244,10 @@ body{
     color: rgb(132, 126, 126)
 }
 
+
+
+
+/*Footer**/
 .description-footer{
     display: grid;
     justify-content: center;
@@ -323,3 +324,4 @@ body{
 }
 
 
+/*****/

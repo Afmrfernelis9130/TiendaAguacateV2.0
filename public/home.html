@@ -10,58 +10,59 @@
      
     <title>Home</title>
 </head>
-
-  <header class="ul-menu">
-        <div class="logo-nombre">
-
-           <a href="./home.html"> <img class="img-logo" src="./Asset/logos/aguacox.png" alt="">
-          
-          </a> 
-
-  
-
-        </div>
-
-        <div class="about-menu">
-
-          <ul>
-            <li> <a href="/"> About us</a></li>
-            <li><a href="/">Contact us</a></li>
-            <li><a href="/">Location</a></li>
-            <li><a href="/">Support</a></li>
-          </ul>
-        </div>
-
-        <div class="search-menu">
-          <input type="search" placeholder="Search Avocado...">
-
-          <div class="btn-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-         
-          
-        </div>
-
-        <div class="username-menu" > 
-
-          <div class="navbar-imgprofile">
-            <img class="img-profile" src="./Asset/logos/circle-user-solid.svg" alt="">
-            <p> My account</p>
-          </div>
-        
-           <div class="navbar-imgcarrito">
-            <img class="img-carrito" src="./Asset/logos/CartMajor.svg" alt="carrito-de-compras">
-           </div>
-           
-        </div>
-        
-    
-   
-  </header>
-
   <body>
 
-       <div data-turbolinks="false" class="container" >
+    <header class="ul-menu">
+      <div class="logo">
+
+         <a href="./home.html"> <img class="img-logo" src="./Asset/logos/aguacox.png" alt="">
+        
+        </a> 
+
+
+
+      </div>
+
+      <div class="about-menu">
+
+        <ul>
+          <li> <a href="/"> About us</a></li>
+          <li><a href="/">Contact us</a></li>
+          <li><a href="/">Location</a></li>
+          <li><a href="/">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="search-menu">
+        <input type="search" placeholder="Search Avocado...">
+
+        <div class="btn-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+       
+        
+      </div>
+
+      <div class="username-menu" > 
+
+        <div class="navbar-imgprofile">
+          <img class="img-profile" src="./Asset/logos/circle-user-solid.svg" alt="">
+          <p> My account</p>
+        </div>
+      
+         <div class="navbar-imgcarrito">
+          <img class="img-carrito" src="./Asset/logos/CartMajor.svg" alt="carrito-de-compras">
+         </div>
+         
+      </div>
+      
+  
+ 
+</header>
+
+
+
+       <div  class="container" >
 
         
        </div>
@@ -118,8 +119,31 @@
 
   
    </footer>
-   <script src="/src/Services/home.js" type="module"></script>
 
+   <script>
+      let mainLocation = window.pageYOffset
+      let $nav = document.querySelector('.ul-menu');
+
+      window.addEventListener('scroll' , scrolling);
+      function scrolling (){
+        let locationGet = window.pageYOffset;
+        console.log(locationGet);
+
+        if (mainLocation >= locationGet){
+           $nav.style.top = "0px";
+
+        } else {
+          $nav.style.top = "-80px";
+        }
+
+        mainLocation = locationGet ; 
+      }
+   </script>
+
+
+
+   <script src="/src/Services/home.js" type="module"></script>
+     
   
 </body>
 </html>
