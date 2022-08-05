@@ -24,7 +24,7 @@ body{
 /* Ul Menu */
 .ul-menu{
     display: flex;
-    justify-content:center;
+    justify-content:space-around;
     margin-top: 0rem;
     box-shadow: 0 1px 2px 0 rgba(34,36,38,.15); 
     align-items: center;
@@ -50,10 +50,67 @@ body{
 }
 
 .about-menu{
-    margin-left: 40px;
+    transform:translateX(-150px);
 }
 
-.about-menu ul{
+.about-menu .nav{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+ }
+ 
+ .about-menu .item_li{
+     margin: 0 15px;
+ }
+ .about-menu .item_a{
+     display: flex;
+     font-weight: 600;
+     text-decoration: none;
+     font-size: 13px;
+     color: #000000;
+     position: relative;
+     padding: 5px 15px 5px 15px;
+     overflow: hidden;
+     text-transform: uppercase;
+     transition: .3s;
+ 
+ }
+ 
+ .about-menu .item_a:before{
+     content: '';
+     position: absolute;
+     top: 0;
+     right: 100%;
+     width: 50%;
+     height: 2px;
+     background-color: var(--hospital-green);
+     transition: .5s cubic-bezier(0.075, 0.082, 0.165, 1);
+ }
+ 
+ .about-menu .item_a:after{
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 100%;
+     width: 50%;
+     height: 2px;
+     background-color: var(--hospital-green);
+     transition: .5s cubic-bezier(0.075, 0.082, 0.165, 1);
+ }
+ 
+ .about-menu .item_a:hover{
+     color: var(--hospital-green);
+ }
+ 
+ .about-menu .item_a:hover:before{
+     right: 0;
+ }
+ 
+ .about-menu .item_a:hover:after{
+     left:  0;
+ }
+
+/* .about-menu ul{
     display: flex;
     padding: 0;
     margin-right: 250px;
@@ -82,7 +139,7 @@ body{
     background-color: var(--hospital-green);
     color: white;
 
-}
+} */
 
 
 .search-menu{
@@ -159,6 +216,11 @@ body{
     width: 25px;
     height:25px;
     transform: translateY(22px);
+    
+}
+
+.username-menu .navbar-imgcarrito:hover img {
+    transform: translateY(19px);
     
 }
 
