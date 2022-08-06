@@ -56,7 +56,8 @@ import {price} from "./inputValid.js" ;
           //Anadimos input para la cantidad 
           const input = document.createElement("input");
           input.classList.add("input-description");
-          input.setAttribute("type","number");
+          input.setAttribute("type","number" );
+          
           
 
          
