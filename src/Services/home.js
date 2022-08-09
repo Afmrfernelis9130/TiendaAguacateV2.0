@@ -5,7 +5,8 @@ const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
 let cart = [];
-let cantidad = 0;
+let cantidad = 1;
+let onCar=false;
 
 
 //Instanciamos la clave para el formato de moneda
@@ -92,6 +93,7 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
 //Agregar al carrito
 function addToCart(e, data) {
 
+
     const id = e.target.dataset.id; //Obtenemos el id del aguacate
     const product = data.data.find(product => product.id === id);
 
@@ -107,31 +109,27 @@ function addToCart(e, data) {
         amount.innerText = cart.length;
 
 
-    } if (!cart.includes(product.id)) {
+    }
+   else  if (!cart.includes(product.id) ) {
+
+
+
+        cart.push(
+
+                {
+
+                    name:product.name,
+                    price:product.price,
+                    image:product.image,
+                    quantity: cantidad = cantidad + 1,
+
+                }
+            )
+
 
 
 
     }
-
-
-    // else {
-    //
-    //     cantidad = 1;
-    //
-    //     cart.push(
-    //
-    //         {
-    //
-    //             name: product.name,
-    //             price: product.price,
-    //             image: product.image,
-    //             quantity: cantidad
-    //
-    //         }
-    //     )
-    //
-    //     // alert("El producto ya esta en el carrito");
-    // }
 
 
 
@@ -186,12 +184,12 @@ const printCarShop = (data) => {
         fila.appendChild(image);
 
         td = document.createElement("td");
-        td.innerHTML = cantidad;
+        td.innerHTML = item.quantity;
         fila.appendChild(td);
 
 
         td = document.createElement("td");
-        td.innerHTML = item.price;
+        td.innerHTML = item.price * item.quantity;
         fila.appendChild(td);
 
         tableBody.appendChild(fila);
