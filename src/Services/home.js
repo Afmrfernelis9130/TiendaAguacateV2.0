@@ -6,7 +6,7 @@ const API = 'https://platzi-avo.vercel.app';
 //variables para el carrito
 let cart = [];
 let cantidad = 0;
-let onCar = false;
+
 
 //Instanciamos la clave para el formato de moneda
 const priceFormat = new price();
@@ -91,44 +91,49 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
 
 //Agregar al carrito
 function addToCart(e, data) {
+
     const id = e.target.dataset.id; //Obtenemos el id del aguacate
     const product = data.data.find(product => product.id === id);
+
+
 
     //Verificamos si el aguacate ya esta en el carrito
     if (!cart.includes(product)) {
 
-
-        cantidad = 1;
         cart.push(
-
             product
-
-
         )
-
-
 
         amount.innerText = cart.length;
 
 
-    } else {
+    } if (!cart.includes(product.id)) {
 
-        cantidad = cantidad + 1;
 
-        cart.push(
-            {
 
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                quantity: cantidad
-
-            }
-
-        )
-
-        // alert("El producto ya esta en el carrito");
     }
+
+
+    // else {
+    //
+    //     cantidad = 1;
+    //
+    //     cart.push(
+    //
+    //         {
+    //
+    //             name: product.name,
+    //             price: product.price,
+    //             image: product.image,
+    //             quantity: cantidad
+    //
+    //         }
+    //     )
+    //
+    //     // alert("El producto ya esta en el carrito");
+    // }
+
+
 
 
     printCarShop(cart);
@@ -200,4 +205,7 @@ const printCarShop = (data) => {
 
 
 fillCart();
+
+
+
 
