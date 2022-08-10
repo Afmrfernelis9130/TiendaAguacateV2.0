@@ -1,5 +1,7 @@
 import {price} from "./inputValid2.js" ;
 
+//esta es la rama 5
+
 //LLAMADA A LA API PARA OBTENER LOS DATOS
 const API = 'https://platzi-avo.vercel.app';
 
