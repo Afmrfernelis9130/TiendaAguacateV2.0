@@ -258,9 +258,39 @@ body{
 
 .container{
 display: flex;
+margin-top: 150px;
+justify-content: space-around;
     
     
 }
+
+.directions {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.directions .directions-img{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.directions .hours {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.directions .contact{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.directions .nearme{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+
 
 .photos{
     display: flex;
@@ -268,8 +298,8 @@ display: flex;
 }
 
 .container .directions-img{
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
 }
 
 .container .photos-img{
