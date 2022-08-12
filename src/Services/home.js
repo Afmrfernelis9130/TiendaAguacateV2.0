@@ -7,8 +7,10 @@ const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
 let cart = [];
+let cart2=[];
+;
 let cantidad = 1;
-let onCar=false;
+let onCar = false;
 
 
 //Instanciamos la clave para el formato de moneda
@@ -94,8 +96,6 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
 
 //Agregar al carrito
 function addToCart(e, data) {
-
-
     const id = e.target.dataset.id; //Obtenemos el id del aguacate
     const product = data.data.find(product => product.id === id);
 
@@ -112,31 +112,36 @@ function addToCart(e, data) {
 
 
     }
-   else  if (!cart.includes(product.id) ) {
+    else  if (!cart.includes(product.id) ) {
 
 
 
         cart.push(
 
-                {
+            {
 
-                    name:product.name,
-                    price:product.price,
-                    image:product.image,
-                    quantity: cantidad = cantidad + 1,
+                name:product.name,
+                price:product.price,
+                image:product.image,
+                quantity: cantidad = cantidad + 1,
 
-                }
-            )
-
-
+            }
+        )
 
 
+
+
+    }
+    else {
+        alert("El aguacate ya esta en el carrito")
     }
 
 
 
 
     printCarShop(cart);
+
+
 
 }
 
@@ -170,7 +175,6 @@ const printCarShop = (data) => {
 
     tableBody.innerHTML = "";
 
-
     data.forEach((item) => {
         let fila = document.createElement("tr");
         let image = document.createElement('img')
@@ -182,6 +186,7 @@ const printCarShop = (data) => {
 
         td = document.createElement("td");
         image.src = item.image;
+        // image.src = `${API}${item.image}`;
         fila.appendChild(td);
         fila.appendChild(image);
 
@@ -203,6 +208,21 @@ const printCarShop = (data) => {
 
 }
 
+function product(data, id) {
+
+    const product = data.data.find(product => product.id === id);
+
+    cart2.push({
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        quantity: cantidad * 9 ,
+    });
+
+    return cart2;
+
+
+}
 
 fillCart();
 
