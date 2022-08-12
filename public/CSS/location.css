@@ -115,76 +115,6 @@ body{
 
 
 
-
-/* .about-menu ul{
-    display: flex;
-    padding: 0;
-    margin-right: 250px;
-    
-}
-
-.about-menu ul li {
-    text-decoration: none;
-    list-style: none;
-    padding: 30px; 
-    
-    
-    
-}
-
-.about-menu ul li a{
-    text-decoration: none;
-    color: #000000;
-    text-align: center;
-    border-radius: 7px;
-    font-weight: bold;
-  
-
-    
-} */
-
-
-.search-menu{
-    display: flex;
-    position: absolute;
-    padding: 5px;
-    right: 340px;
-}
-
-.search-menu input {
-    width: 0px;
-    height: 30px;
-    padding: 0;
-    font-size: 15px;
-    outline: none;
-    border: 1px solid silver;
-    border-radius: 30px;
-    transition: all 0.6s ease;
-}
-
-.btn-search { 
-     display: flex;
-     justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      line-height: 55px;
-      background-color: var(--hospital-green);
-      color: var(--white);
-      position: absolute;
-      top: 0px;
-      right: -4px;
-      border-radius: 50%;
-      font-size: 23px;
-      cursor: pointer;
-      
-      
-}
-
-.search-menu:hover input {
-    width: 240px;
-}
-
 /*About Menu*/
 .username-menu{
     display: flex;
@@ -259,26 +189,32 @@ body{
 .container{
 display: flex;
 margin-top: 150px;
-justify-content: space-around;
+justify-content: space-evenly;
+
     
     
 }
 
 .container-logo-p{
     display:flex ;
-    flex-direction: row;
-    gap: 12px;
-}
+    flex-direction: column;
+    }
+
+ .directions .container-logo-p > p   {
+        font-size: 40px;
+        font-weight: bold;
+    
+    }
 
 .directions {
     display: grid;
-    grid-template-rows: 70px 140px 100px;
+    grid-template-rows: 150px 140px 100px;
     grid-template-columns: 1fr 1fr;
     column-gap: 50px;
     row-gap: 20px;
 }
 
-.directions .directions-img{
+.directions .container-logo-p{
     grid-column: 1/2;
     grid-row: 1/2;
 }
@@ -314,25 +250,19 @@ justify-content: space-around;
     height: 50px;
 }
 
-.directions .container-logo-p > p   {
-    font-size: 16px;
-    font-weight: bold;
 
-}
 
 .directions  h2 {
-    font-size: 18px;
+    font-size: 22px;
     text-decoration: underline;
     color:var(--hospital-green);
 }
 
-.directions p{
-    font-size: 14px;
-    font-weight:300;
-
+.directions .aguacox-location {
+    font-size: 25px;
+    color: var(--hospital-green);
+    font-weight: bold;
 }
-
-
 
 
 
@@ -341,14 +271,11 @@ justify-content: space-around;
     flex-direction: column;
 }
 
-.container .directions-img{
-    width: 60px;
-    height: 60px;
-}
+
 
 .container .photos-img{
-    width: 600px;
-    height: 400px;
+    width: 500px;
+    height: 300px;
 
 }
 
