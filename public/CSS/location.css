@@ -264,10 +264,18 @@ justify-content: space-around;
     
 }
 
+.container-logo-p{
+    display:flex ;
+    flex-direction: row;
+    gap: 12px;
+}
+
 .directions {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 70px 140px 100px;
     grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 20px;
 }
 
 .directions .directions-img{
@@ -289,6 +297,42 @@ justify-content: space-around;
     grid-column: 1/2;
     grid-row: 3/4;
 }
+
+.directions .get-directions{
+    grid-column:2/3 ;
+    grid-row: 3/4;
+}
+
+.btn-directions {
+    background-color:var(--hospital-green);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 17px;
+    width: 160px;
+    height: 50px;
+}
+
+.directions .container-logo-p > p   {
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.directions  h2 {
+    font-size: 18px;
+    text-decoration: underline;
+    color:var(--hospital-green);
+}
+
+.directions p{
+    font-size: 14px;
+    font-weight:300;
+
+}
+
+
 
 
 
