@@ -1,16 +1,16 @@
 import {price} from "./inputValid2.js" ;
 
-//esta es la rama 5
+
 
 //LLAMADA A LA API PARA OBTENER LOS DATOS
 const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
 let cart = [];
-let cart2=[];
-;
-let cantidad = 1;
-let onCar = false;
+
+
+
+
 
 
 //Instanciamos la clave para el formato de moneda
@@ -97,49 +97,23 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
 //Agregar al carrito
 function addToCart(e, data) {
     const id = e.target.dataset.id; //Obtenemos el id del aguacate
-    const product = data.data.find(product => product.id === id);
+    const product = data.data.find(product => product.id === id);//Obtenemos el aguacate
+    const existing = cart.some(p => p.id === product.id);//Verificamos si el aguacate ya esta en el carrito
 
 
 
-    //Verificamos si el aguacate ya esta en el carrito
-    if (!cart.includes(product)) {
+    if(existing){
 
-        cart.push(
-            product
-        )
-
-        amount.innerText = cart.length;
-
-
-    }
-    else  if (!cart.includes(product.id) ) {
-
-
-
-        cart.push(
-
-            {
-
-                name:product.name,
-                price:product.price,
-                image:product.image,
-                quantity: cantidad = cantidad + 1,
-
-            }
-        )
-
-
-
-
+       cart.find(p => p.id === product.id).quantity++;//Si el aguacate ya esta en el carrito, aumentamos la cantidad
     }
     else {
-        alert("El aguacate ya esta en el carrito")
+        cart.push({...product, quantity: 1});//Si el aguacate no esta en el carrito, lo agregamos al carrito con una cantidad de 1
+        amount.innerText = cart.length;
     }
 
 
 
-
-    printCarShop(cart);
+    printCarShop(cart);//Pintamos el carrito
 
 
 
@@ -185,8 +159,8 @@ const printCarShop = (data) => {
         fila.appendChild(td);
 
         td = document.createElement("td");
-        image.src = item.image;
-        // image.src = `${API}${item.image}`;
+        // image.src = item.image;
+        image.src = `${API}${item.image}`;
         fila.appendChild(td);
         fila.appendChild(image);
 
@@ -208,21 +182,7 @@ const printCarShop = (data) => {
 
 }
 
-function product(data, id) {
 
-    const product = data.data.find(product => product.id === id);
-
-    cart2.push({
-        name: product.name,
-        price: product.price,
-        image: product.image,
-        quantity: cantidad * 9 ,
-    });
-
-    return cart2;
-
-
-}
 
 fillCart();
 
