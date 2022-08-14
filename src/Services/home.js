@@ -7,7 +7,7 @@ const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
 let cart = [];
-
+let onclick = false;
 
 
 
@@ -17,14 +17,38 @@ let cart = [];
 const priceFormat = new price();
 
 //variables para el html
-const amount = document.getElementById('amount');
-let table = document.querySelector("table");
-let tableBody = document.createElement("tbody");
+const amount = document.getElementById('amount');//cantidad de productos
+let table = document.querySelector("table");//tabla de productos
+let tableBody = document.createElement("tbody");//cuerpo de la tabla
+const btn= document.getElementById('btn-cart');//BOTON OCULTAR CARRITO
+const element = document.getElementById('element');//elemento para mostrar el carrito
 
 
 //Crear variable para agregar al carrito
 //  var Turbolinks = require ("turbolinks");
 //  Turbolinks.start();
+
+document.addEventListener("DOMContentLoaded", (e)=> {
+
+    element.style.visibility = "hidden";
+
+});//DOMContentLoaded
+
+btn.addEventListener('click',()=>{
+
+if(!onclick) {
+    element.style.visibility = "visible";
+    onclick = true;
+}else if (onclick) {
+    element.style.visibility = "hidden";
+    onclick = false;
+}
+
+
+
+
+});//PONE VISIBLE EL DETALLE DEL CARRITO
+
 
 
 //FUNCION PARA PINTAR EL CARRITO
@@ -170,7 +194,7 @@ const printCarShop = (data) => {
 
 
         td = document.createElement("td");
-        td.innerHTML = item.price * item.quantity;
+        td.innerHTML =Math.round(item.price * item.quantity);
         fila.appendChild(td);
 
         tableBody.appendChild(fila);
@@ -181,6 +205,7 @@ const printCarShop = (data) => {
     table.appendChild(tableBody);
 
 }
+
 
 
 
