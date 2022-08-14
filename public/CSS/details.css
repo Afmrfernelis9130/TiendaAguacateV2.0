@@ -117,30 +117,6 @@ body{
     
 }
 
-.about-menu ul li {
-    text-decoration: none;
-    list-style: none;
-    padding: 30px; 
-    
-    
-    
-}
-
-.about-menu ul li a{
-    text-decoration: none;
-    color: #000000;
-    text-align: center;
-    border-radius: 7px;
-    font-weight: bold;
-    
-}
-
-.about-menu ul li a:hover{
-    background-color: var(--hospital-green);
-    color: white;
-
-} */
-
 
 .search-menu{
     display: flex;
