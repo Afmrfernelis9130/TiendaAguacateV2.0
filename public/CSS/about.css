@@ -19,6 +19,7 @@ body{
     font-family: 'Quicksand', sans-serif;
     margin: 0;
 	padding: 0;
+    box-sizing: 0;
     
     
 }
@@ -189,7 +190,19 @@ body{
 
 /*-------------------CardAboutUs----------------------- */
 
+.container-cards{
+    margin-top: 200px;
+     width: 500px;
+    display:flex;
 
+    
+
+}
+
+.card .cover img {
+    width: 150px;
+
+}
 
 
 
