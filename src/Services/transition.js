@@ -23,7 +23,7 @@ function login (){
 
 function register (){
     formRegister.style.display ="block";
-    containerForm.style.left = "410px";
+    containerForm.style.left = "390px";
     formLogin.style.display = "none";
     backBoxRegister.style.opacity = "0";
     backBoxLogin.style.opacity = "1";
