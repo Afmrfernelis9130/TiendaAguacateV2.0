@@ -1,3 +1,20 @@
+
+:root{
+
+    --white: #FFFFFF;
+    --black: #000000;
+    --dark: #232830;
+    --very-light-pink: #C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green: #65dd75;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+    
+
+}
+
+
 *{
     margin: 0;
     padding: 0;
@@ -12,27 +29,34 @@ body{
     background-attachment: fixed;
 }
 
+main{
+    margin-top: 200px;
+}
+
 
 
 .container{
     margin-top: 200px;
     margin: auto;
-    max-width: 800px;
+    max-width: 700px;
     position: relative;
+    max-height: 100px;
     
 }
 
 .back-box{
     width: 100%;
-    padding: 10px 20px;
+    padding: 5px 20px;
     display: flex;
     justify-content: center;
-    backdrop-filter: blur(10px);
-    background-color: rgba(red, green, blue, alpha);
+    backdrop-filter: blur(5px);
+    background-color: rgba(24, 248, 147, 0.5);
+    border-radius: 10px;
+    height: 250px;
 }
 
 .back-box div {
-    margin: 100px 40px;
+    margin-top: 40px;
     color: white;
     transition: all 500ms;
 }
@@ -57,12 +81,14 @@ body{
     color: white;
     outline: none;
     transition: all 300ms;
+    border-radius: 5px;
+    
     
 }
 
 .back-box button:hover{
     background: white;
-    color: blue;
+    color: var(--hospital-green)
 
 }
 
@@ -71,7 +97,7 @@ body{
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 380px;
+    max-width: 300px;
     position: relative;
     top: -185px;
     left: 10px;
@@ -80,7 +106,7 @@ body{
 
 .container-login-register form  {
     width: 100%;
-    padding: 80px 20px;
+    padding: 60px 20px;
     background-color: #fff;
     position: absolute;
     border-radius: 20px;
@@ -88,17 +114,25 @@ body{
 
 .container-login-register form h2{
     font-size: 30px;
-    text-align: center;
-    margin-bottom: 20px;
+
+}
+
+.container-login-register .form-login {
+    bottom: -225px;
+}
+
+.container-login-register .form-register {
+    bottom: -300px;
 }
 
 .container-login-register input {
-    width: 350px;
+    width: 260px;
     margin-top: 20px;
     padding: 10px;
     border: none;
     background: #f2f2f2;
     outline: none;
+    border-radius: 10px;
 }
 
 .container-login-register button {
@@ -108,6 +142,9 @@ body{
     font-size: 14px;
     cursor: pointer;
     outline: none;
+    border-radius: 4px;
+    color:#fff;
+    background-color: var(--hospital-green);
 }
 
 .form-login {
