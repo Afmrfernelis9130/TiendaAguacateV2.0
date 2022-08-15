@@ -35,6 +35,7 @@ body{
     height: 50px;
 	line-height: 1.65em;
     position: fixed;
+    z-index: 1;
     width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
 	left: 0; /* Posicionamos la cabecera al lado izquierdo */
 	top: 0; /* Posicionamos la cabecera pegada arriba y abajo */
@@ -114,34 +115,6 @@ body{
 }
 
 
-
-
-/* .about-menu ul{
-    display: flex;
-    padding: 0;
-    margin-right: 250px;
-    
-}
-
-.about-menu ul li {
-    text-decoration: none;
-    list-style: none;
-    padding: 30px; 
-    
-    
-    
-}
-
-.about-menu ul li a{
-    text-decoration: none;
-    color: #000000;
-    text-align: center;
-    border-radius: 7px;
-    font-weight: bold;
-  
-
-    
-} */
 
 
 .search-menu{
@@ -263,6 +236,7 @@ body{
 }
 
 .container{
+    margin-top: 100px;
     display:grid;
     grid-template-columns:300px 300px 300px ;
     column-gap: 5px;
@@ -289,7 +263,7 @@ body{
 .card:hover{
    cursor: pointer;
    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-    /* transform: translateY(0.5%);  */
+    transform: translateY(0.5%); 
   
 }
 
