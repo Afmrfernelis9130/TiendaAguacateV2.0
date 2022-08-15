@@ -1,4 +1,4 @@
-import {validInput} from "./inputValid.js";
+// import {validInput} from "./inputValid2.js";
 
 const api = "/src/Model/user.json";
 

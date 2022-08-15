@@ -1,5 +1,5 @@
 
-    import { validInput } from "./inputValid.js";
+    import { validInput } from "./inputValid2.js";
 
 
     //Capturas los datos del html
@@ -53,7 +53,7 @@ const validarForm = ()=>{
            //Validar contrasena
 
            if (passwordValue === "" ){
-              validarRegistro.setErrorFor(password , "El campo esta vacio");               
+              validarRegistro.setErrorFor(password , "El campo esta vacio");
            }else if (passwordValue.length < 9){
               validarRegistro.setErrorFor(password , "Debe tener minimo 8 caracteres");
            }
@@ -70,6 +70,7 @@ const validarForm = ()=>{
            
 
 }
+
 
 
 
