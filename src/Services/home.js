@@ -1,28 +1,54 @@
 import {price} from "./inputValid2.js" ;
 
-//esta es la rama 5
+
 
 //LLAMADA A LA API PARA OBTENER LOS DATOS
 const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
 let cart = [];
-let cantidad = 1;
-let onCar=false;
+let onclick = false;
+
+
+
 
 
 //Instanciamos la clave para el formato de moneda
 const priceFormat = new price();
 
 //variables para el html
-const amount = document.getElementById('amount');
-let table = document.querySelector("table");
-let tableBody = document.createElement("tbody");
+const amount = document.getElementById('amount');//cantidad de productos
+let table = document.querySelector("table");//tabla de productos
+let tableBody = document.createElement("tbody");//cuerpo de la tabla
+const btn= document.getElementById('btn-cart');//BOTON OCULTAR CARRITO
+const element = document.getElementById('element');//elemento para mostrar el carrito
 
 
 //Crear variable para agregar al carrito
 //  var Turbolinks = require ("turbolinks");
 //  Turbolinks.start();
+
+document.addEventListener("DOMContentLoaded", (e)=> {
+
+    element.style.visibility = "hidden";
+
+});//DOMContentLoaded
+
+btn.addEventListener('click',()=>{
+
+if(!onclick) {
+    element.style.visibility = "visible";
+    onclick = true;
+}else if (onclick) {
+    element.style.visibility = "hidden";
+    onclick = false;
+}
+
+
+
+
+});//PONE VISIBLE EL DETALLE DEL CARRITO
+
 
 
 //FUNCION PARA PINTAR EL CARRITO
@@ -94,49 +120,26 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
 
 //Agregar al carrito
 function addToCart(e, data) {
-
-
     const id = e.target.dataset.id; //Obtenemos el id del aguacate
-    const product = data.data.find(product => product.id === id);
+    const product = data.data.find(product => product.id === id);//Obtenemos el aguacate
+    const existing = cart.some(p => p.id === product.id);//Verificamos si el aguacate ya esta en el carrito
 
 
 
-    //Verificamos si el aguacate ya esta en el carrito
-    if (!cart.includes(product)) {
+    if(existing){
 
-        cart.push(
-            product
-        )
-
+       cart.find(p => p.id === product.id).quantity++;//Si el aguacate ya esta en el carrito, aumentamos la cantidad
+    }
+    else {
+        cart.push({...product, quantity: 1});//Si el aguacate no esta en el carrito, lo agregamos al carrito con una cantidad de 1
         amount.innerText = cart.length;
-
-
-    }
-   else  if (!cart.includes(product.id) ) {
-
-
-
-        cart.push(
-
-                {
-
-                    name:product.name,
-                    price:product.price,
-                    image:product.image,
-                    quantity: cantidad = cantidad + 1,
-
-                }
-            )
-
-
-
-
     }
 
 
 
+    printCarShop(cart);//Pintamos el carrito
 
-    printCarShop(cart);
+
 
 }
 
@@ -170,7 +173,6 @@ const printCarShop = (data) => {
 
     tableBody.innerHTML = "";
 
-
     data.forEach((item) => {
         let fila = document.createElement("tr");
         let image = document.createElement('img')
@@ -181,7 +183,8 @@ const printCarShop = (data) => {
         fila.appendChild(td);
 
         td = document.createElement("td");
-        image.src = item.image;
+        // image.src = item.image;
+        image.src = `${API}${item.image}`;
         fila.appendChild(td);
         fila.appendChild(image);
 
@@ -191,7 +194,7 @@ const printCarShop = (data) => {
 
 
         td = document.createElement("td");
-        td.innerHTML = item.price * item.quantity;
+        td.innerHTML =Math.round(item.price * item.quantity);
         fila.appendChild(td);
 
         tableBody.appendChild(fila);
@@ -202,6 +205,8 @@ const printCarShop = (data) => {
     table.appendChild(tableBody);
 
 }
+
+
 
 
 fillCart();
