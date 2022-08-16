@@ -6,6 +6,7 @@ import {price} from "./inputValid2.js" ;
 const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
+let search = [];
 let cart = [];
 let onclick = false;
 
@@ -22,6 +23,8 @@ let table = document.querySelector("table");//tabla de productos
 let tableBody = document.createElement("tbody");//cuerpo de la tabla
 const btn= document.getElementById('btn-cart');//BOTON OCULTAR CARRITO
 const element = document.getElementById('element');//elemento para mostrar el carrito
+// const searchMenu = document.querySelector(".menu-searh");
+const btnSearh = document.querySelector(".btn-search");
 
 
 //Crear variable para agregar al carrito
@@ -55,7 +58,9 @@ if(!onclick) {
 const fillCart = async () => await fetch(`${API}/api/avo`)
     .then(data => data.json())
     .then(data => {
-            //Seleccionar el contenedor***
+               //agregamos el arrays para el buscador
+               search.push( data.data);
+                //Seleccionar el contenedor***
             const container = document.querySelector(".container");
             const value = document.querySelector('.value');
             data.data.forEach(element => {
@@ -104,11 +109,13 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
 
                     viewProduct(e)
                 });
-
+            
                 name.addEventListener('click', viewProduct);
+                btnSearh.addEventListener('click',searhAvocado(element));
                 button.addEventListener('click', (e) => {
 
                     addToCart(e, data);
+
                 });
 
 
@@ -167,6 +174,12 @@ function viewProduct(e) {
 
 
 }
+
+//Funcion para buscar los aguacates
+function searhAvocado (data) {
+   console.log(data)
+;  
+};
 
 //FUNCION PARA IMPRIMIR EL CARRITO
 const printCarShop = (data) => {

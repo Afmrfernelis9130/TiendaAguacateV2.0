@@ -5,7 +5,7 @@ window.addEventListener('scroll', scrolling);
 
 function scrolling() {
     let locationGet = window.pageYOffset;
-    console.log(locationGet);
+    
 
     if (mainLocation >= locationGet) {
         $nav.style.top = "0px";
