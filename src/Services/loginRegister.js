@@ -95,22 +95,15 @@ function login(data){
 
             console.log("Login Failed")
         } else if (EMAIL === "") {
-            setErrorFor(inputLEmail, "The username field is required");
+            alert("The username field is required");
             console.log("Username is empty")
 
         }
         else if (PASSWORD === "" && !isLogged) {
-            setErrorFor(inputLPassword, "The password field is required");
+            alert("The password field is required");
             console.log("Passwords is empty")
 
-        } else if (!setErrorForEmail(EMAIL && !isLogged)) {
-            setErrorFor(inputLEmail, "The email is not valid")
-
         }
-        else if (setErrorForEmail(EMAIL)) {
-            setSuccessFor(inputLEmail);
-        }
-        isLogged = true;
     })
 
 
@@ -133,49 +126,37 @@ function register() {
     //Validar username
 
     if (NAME.length < 8) {
-        setErrorFor(inputRUsername, 'Username must be at least 8 characters');
-
-    }
-    if (USERNAME.length > 8) {
-        setSuccessFor(inputRUsername);
+        alert('Username must be at least 8 characters');
 
     }
     if (USERNAME==="") {
-        setErrorFor(inputRUsername, 'Username is required');
+        alert( 'Username is required');
         isNotSave = true;
 
     }
     if (USERNAME === USERNAME.toUpperCase() && !EMAIL==="") {
-        setErrorFor(inputRUsername, 'Username must be in UpperCase');
+        alert('Username must be in UpperCase');
         isNotSave = true;
 
     }
     if(EMAIL === "") {
-        setErrorFor(inputREmail, 'Email is required');
+        alert('Email is required');
         isNotSave = true;
 
     }
-    else if(!setErrorForEmail(EMAIL)) {
-        setErrorFor(inputREmail, 'Email is invalid');
-        isNotSave = true;
 
-    }
-    else {
-        setSuccessFor(inputLEmail);
-
-    }
     if(PASSWORD === "") {
-        setErrorFor(inputRPassword, 'Password is required');
+        alert('Password is required');
         isNotSave = true;
 
     }
     if(PASSWORD2 === "") {
-       setErrorFor(inputRPassword2, 'Password is required');
+      alert( 'Password is required');
         isNotSave = true;
 
     }
     if(PASSWORD2 !== PASSWORD) {
-        setErrorFor(inputRPassword2, 'not match');
+     alert('not match');
         isNotSave = true;
 
     }
@@ -184,38 +165,21 @@ function register() {
 }
 
 function addRegister(data) {
-    const USERNAME = inputRUsername.value.trim();
-    const NAME = inputRName.value.trim();
-    const EMAIL = inputREmail.value.trim();
-    const PASSWORD = inputRPassword.value.trim();
-    const PASSWORD2 = inputRPassword2.value.trim();
+    // const USERNAME = inputRUsername.value.trim();
+    // const NAME = inputRName.value.trim();
+    // const EMAIL = inputREmail.value.trim();
+    // const PASSWORD = inputRPassword.value.trim();
+    // const PASSWORD2 = inputRPassword2.value.trim();
 
     data.push({
-        user: USERNAME,
-        email: EMAIL,
-        name: NAME,
-        password: PASSWORD,
-        password2: PASSWORD2,
+        user: inputRUsername.value,
+        email:inputREmail.value,
+        name: inputRName.value,
+        password: inputRPassword.value,
+        password2: inputRPassword2.value,
     });
 
     console.log(data);
 
-}
 
-function setSuccessFor(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-register success';
-}
-
-function setErrorFor(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    formControl.className = 'form-register error';
-    small.innerText = message;
-}
-
-function setErrorForEmail(email) {
-    let regax = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
-
-    return regax.test(email);
 }
