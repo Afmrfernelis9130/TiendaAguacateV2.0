@@ -1,7 +1,7 @@
 // import {validInput} from "./inputValid2.js"
 
 
-
+//API
 const APIL = "/src/Model/user.json"
 const APIR = "/src/Model/registerUser.json"
 
@@ -22,16 +22,17 @@ const inputRPassword2= document.getElementById("register-password2");
 const btnLogin= document.getElementById("btn-login");
 const btnRegister= document.getElementById("btn-register");
 
-
+//VARIABLES DE CONTROL
 let isLogged=false
 let isNotSave = false;
 
+
+//EVENTOS   DE CONTROL
 btnLogin.addEventListener("click", (e) => {
     e.preventDefault();
     fetchDataLogin()
 
 } );
-
 btnRegister.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -41,7 +42,7 @@ btnRegister.addEventListener("click", (e) => {
 
 } );
 
-
+//LLAMADA A LA API DE LOGIN_REGISTER
 const fetchDataLogin = async () => {
 
     try {
@@ -58,7 +59,6 @@ const fetchDataLogin = async () => {
     }
 
 }
-
 const fetchDataRegister = async () => {
     try {
         const response = await fetch(APIR);
