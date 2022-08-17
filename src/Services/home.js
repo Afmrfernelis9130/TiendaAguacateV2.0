@@ -6,13 +6,9 @@ import {price} from "./inputValid2.js" ;
 const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
-let search = [];
+const search = [];
 let cart = [];
 let onclick = false;
-
-
-
-
 
 //Instanciamos la clave para el formato de moneda
 const priceFormat = new price();
@@ -23,13 +19,9 @@ let table = document.querySelector("table");//tabla de productos
 let tableBody = document.createElement("tbody");//cuerpo de la tabla
 const btn= document.getElementById('btn-cart');//BOTON OCULTAR CARRITO
 const element = document.getElementById('element');//elemento para mostrar el carrito
-// const searchMenu = document.querySelector(".menu-searh");
-const btnSearh = document.querySelector(".btn-search");
+const searchMenu = document.querySelector(".menu-searh");
+const btnFind = document.querySelector(".btn-search");
 
-
-//Crear variable para agregar al carrito
-//  var Turbolinks = require ("turbolinks");
-//  Turbolinks.start();
 
 document.addEventListener("DOMContentLoaded", (e)=> {
 
@@ -54,16 +46,15 @@ if(!onclick) {
 
 
 
-//FUNCION PARA PINTAR EL CARRITO
+//Funcion para mostar los aguacates
 const fillCart = async () => await fetch(`${API}/api/avo`)
     .then(data => data.json())
-    .then(data => {
-               //agregamos el arrays para el buscador
-               search.push( data.data);
+    .then(data => {       
                 //Seleccionar el contenedor***
             const container = document.querySelector(".container");
             const value = document.querySelector('.value');
             data.data.forEach(element => {
+                search.push(element)
                 //Creamos las cartas que estaran dentro del container
                 const cuerpo = document.createElement("div");
                 cuerpo.classList.add("card");
@@ -111,7 +102,7 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
                 });
             
                 name.addEventListener('click', viewProduct);
-                btnSearh.addEventListener('click',searhAvocado(element));
+                btnFind.addEventListener('click', findAvocado);
                 button.addEventListener('click', (e) => {
 
                     addToCart(e, data);
@@ -130,6 +121,7 @@ function addToCart(e, data) {
     const id = e.target.dataset.id; //Obtenemos el id del aguacate
     const product = data.data.find(product => product.id === id);//Obtenemos el aguacate
     const existing = cart.some(p => p.id === product.id);//Verificamos si el aguacate ya esta en el carrito
+    
 
 
 
@@ -176,9 +168,14 @@ function viewProduct(e) {
 }
 
 //Funcion para buscar los aguacates
-function searhAvocado (data) {
-   console.log(data)
-;  
+function findAvocado () {
+    //Creaciones de variables
+    const text = searchMenu.value; //Tomamos el valor de input
+    const avocadoName = avocado => avocado.name == text; // Creamos la funcion de orden superior
+    const newAvocados = search.filter( avocadoName); //Utilizamos el metodo filter para buscar los aguacates
+    console.log(newAvocados);
+    
+    
 };
 
 //FUNCION PARA IMPRIMIR EL CARRITO
