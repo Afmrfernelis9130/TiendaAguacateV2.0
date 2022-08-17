@@ -1,38 +1,23 @@
-let cantidad = 0;
-
-const cart=[
-
-        {
-
-            name: "Samsung Galaxy S10",
-            price: "Rs. 6,999",
-            image:  "dfasdfsdf",
+const fs=require("fs/promises");
 
 
-        }
 
-]
-
-const prueba=[];
-
-prueba.push({
-
-
-    name: "Samsung Galaxy S10",
-    price: "Rs. 6,999",
-    image:  "dfasdfsdf",
-    cantidad: cantidad + 2
-
-
-})
+const path=require("path");
 
 
 
 
-cart.forEach(element => {
-    console.log(element);
-})
+const pathJSON= path.join(__dirname, APIL);
 
-prueba.forEach(element => {
-    console.log(element);
-})
+
+import fs from "fs/promises";
+
+const readJSON = async () => {
+
+    const data = await fs.readFile(pathJSON, "utf-8");
+    return JSON.parse(data);
+}
+
+const writeJSON = (data) => {
+    fs.writeFileSync(pathJSON,data);
+};
