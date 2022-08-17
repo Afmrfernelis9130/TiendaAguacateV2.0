@@ -1,19 +1,17 @@
 import {price} from "./inputValid2.js" ;
 
-
-
 //LLAMADA A LA API PARA OBTENER LOS DATOS
 const API = 'https://platzi-avo.vercel.app';
 
-//variables para el carrito
+//variables
 const search = [];
 let cart = [];
 let onclick = false;
 
 //Instanciamos la clave para el formato de moneda
 const priceFormat = new price();
-
 //variables para el html
+const container = document.querySelector(".container");
 const amount = document.getElementById('amount');//cantidad de productos
 let table = document.querySelector("table");//tabla de productos
 let tableBody = document.createElement("tbody");//cuerpo de la tabla
@@ -49,17 +47,14 @@ if(!onclick) {
 //Funcion para mostar los aguacates
 const fillCart = async () => await fetch(`${API}/api/avo`)
     .then(data => data.json())
-    .then(data => {       
-                //Seleccionar el contenedor***
-            const container = document.querySelector(".container");
-            const value = document.querySelector('.value');
-            data.data.forEach(element => {
+    .then(data => {            
+            // const value = document.querySelector('.value');
+                data.data.forEach(element => {
                 search.push(element)
                 //Creamos las cartas que estaran dentro del container
                 const cuerpo = document.createElement("div");
                 cuerpo.classList.add("card");
                 cuerpo.dataset.id = element.id;
-
 
                 //Adanimos la imagen de aguacate en la carta
                 const img = document.createElement("img");
@@ -96,20 +91,10 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
                 cuerpo.append(img, name, description, price, button);
 
                 //Eventos con los botones
-                cuerpo.addEventListener('click', (e) => {
-
-                    viewProduct(e)
-                });
-            
+                cuerpo.addEventListener('click', (e) => {viewProduct(e)});
                 name.addEventListener('click', viewProduct);
                 btnFind.addEventListener('click', findAvocado);
-                button.addEventListener('click', (e) => {
-
-                    addToCart(e, data);
-
-                });
-
-
+                button.addEventListener('click', (e) => { addToCart(e, data);});
             }).catch(Error => console.error(Error));
 
 
