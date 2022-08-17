@@ -45,6 +45,12 @@ if(!onclick) {
 
 
 //Funcion para mostar los aguacates
+
+
+// const response = await fetch(`${API}/api/avo`);
+// await response.json();
+// console.log();
+
 const fillCart = async () => await fetch(`${API}/api/avo`)
     .then(data => data.json())
     .then(data => {            
