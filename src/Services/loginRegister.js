@@ -91,19 +91,25 @@ function login(data){
             isLogged = true;
 
 
-        } else if (element.username !== EMAIL && element.pass !== PASSWORD && !isLogged) {
+        }
+        else if (EMAIL === "" && !isLogged ) {
 
-            console.log("Login Failed")
-        } else if (EMAIL === "") {
             alert("The username field is required");
-            console.log("Username is empty")
+            isLogged = true;
 
         }
         else if (PASSWORD === "" && !isLogged) {
             alert("The password field is required");
-            console.log("Passwords is empty")
+            isLogged = true;
 
         }
+        else if (element.username !== EMAIL && element.pass !== PASSWORD && !isLogged) {
+
+            alert("Login Failed")
+            isLogged = true;
+
+        }
+
     })
 
 
