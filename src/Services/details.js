@@ -1,5 +1,7 @@
 import {price} from "./inputValid.js" ;
-    
+
+    //Variables 
+    const inputFind = document.querySelector(".input-find");
     
     const API = 'https://platzi-avo.vercel.app';
 
@@ -16,7 +18,7 @@ import {price} from "./inputValid.js" ;
 
     const detailCard = async ()=> await  fetch(`${API}/api/avo`).then(prueba => prueba.json())
     .then ( data => {
-        let arry = data.data.find( id => id.id ==='2zd33b8c');
+        
 
           //Crear una carta 
           const card = document.createElement ("div");
@@ -90,7 +92,8 @@ import {price} from "./inputValid.js" ;
          card.appendChild(containerAttributes);
          containerChild.append(input,button);
          
-                
+         //Eventos 
+         
 
          
 

@@ -17,7 +17,8 @@ let table = document.querySelector("table");//tabla de productos
 let tableBody = document.createElement("tbody");//cuerpo de la tabla
 const btn= document.getElementById('btn-cart');//BOTON OCULTAR CARRITO
 const element = document.getElementById('element');//elemento para mostrar el carrito
-const searchMenu = document.querySelector(".menu-searh");
+const inputFind = document.querySelector(".input-find"); // Input para el buscador
+const results  = document.querySelector('.results');
 const btnFind = document.querySelector(".btn-search");
 
 
@@ -99,7 +100,7 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
                 //Eventos con los botones
                 cuerpo.addEventListener('click', (e) => {viewProduct(e)});
                 name.addEventListener('click', viewProduct);
-                btnFind.addEventListener('click', findAvocado);
+                inputFind.addEventListener('keyup', findAvocado);
                 button.addEventListener('click', (e) => { addToCart(e, data);});
             }).catch(Error => console.error(Error));
 
@@ -159,12 +160,45 @@ function viewProduct(e) {
 }
 
 //Funcion para buscar los aguacates
-function findAvocado () {
-    //Creaciones de variables
-    const text = searchMenu.value; //Tomamos el valor de input
-    const avocadoName = avocado => avocado.name == text; // Creamos la funcion de orden superior
-    const newAvocados = search.filter( avocadoName); //Utilizamos el metodo filter para buscar los aguacates
-    console.log(newAvocados);
+export function findAvocado () {
+    //Variables
+    results.innerHTML='';
+    results.style.display = "block";
+    const text = inputFind.value.toLowerCase(); //Lo llevamos a minusculas
+    const namesAvocados = newArrayAvocado(); // Tomamos el nuevo array
+   
+    ///////
+    function newArrayAvocado (){
+
+        let newAvocados = []
+        search.forEach(element =>{
+               newAvocados.push(element.name);
+              
+        }  ); return newAvocados;
+    
+            
+    }
+  
+ 
+     namesAvocados.forEach(name =>{ 
+        let aguacate = name.toLowerCase();
+        if (aguacate.indexOf(text) !== -1){
+
+            results.innerHTML += `<li><a href=""> <i  class="fa-solid fa-magnifying-glass " ></i>${name}</a> </li>` 
+
+        }
+        
+        if (inputFind.value ==''){
+            results.style.display = "none";
+    
+        }
+        
+     })
+
+  
+  
+   
+
     
     
 };

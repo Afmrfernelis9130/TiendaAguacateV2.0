@@ -37,7 +37,7 @@ body{
     height: 50px;
 	line-height: 1.65em;
     position: fixed;
-    z-index: 3;
+    z-index: 11;
     width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
 	left: 0; /* Posicionamos la cabecera al lado izquierdo */
 	top: 0; /* Posicionamos la cabecera pegada arriba y abajo */
@@ -46,7 +46,6 @@ body{
     
 
 }
-
 /*Logo*/
 .ul-menu .img-logo {
     width: 260px;
@@ -56,7 +55,7 @@ body{
 
 
 .about-menu {
-    transform:translateX(-150px);
+    transform:translateX(170px);
 }
 
 .about-menu .nav{
@@ -66,7 +65,7 @@ body{
 }
 
 .about-menu .item_li{
-    margin: 0 15px;
+    margin:  15px;
 }
 .about-menu .item_a{
     display: flex;
@@ -78,7 +77,7 @@ body{
     padding: 5px 15px 5px 15px;
     overflow: hidden;
     text-transform: uppercase;
-    transition: .3s;
+
 
 }
 
@@ -123,7 +122,7 @@ body{
     display: flex;
     justify-content: space-around;
     width: 150px;
-    margin-right: 20px;
+    margin-right: 15px;
     transform: translateY(-10px);
 
    
@@ -140,13 +139,17 @@ body{
   
   }
    
- .username-menu .navbar-imgprofile p {
-       font-size: 12px;
-       height: 1px;
-       padding-top: -20px;
-       
-   }
+  .username-menu .navbar-imgprofile p {
+    font-size: 14px;
+    height: 1px;
+    padding-top:-40px;
+    
+}
 
+.username-menu .navbar-imgprofile  {
+    transform: translateX(-20px);
+    
+}
 .username-menu .img-carrito {
     width: 25px;
     height:25px;

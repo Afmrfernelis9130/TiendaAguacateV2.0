@@ -32,21 +32,17 @@
     
         <ul class="nav">
           <li class="item_li"> <a class="item_a" href="/"> About us</a></li>
-          <li class="item_li"><a class="item_a" href="/">Contact us</a></li>
           <li class="item_li"><a class="item_a" href="/">Location</a></li>
           <li class="item_li"><a  class="item_a"href="/">Support</a></li>
         </ul>
     </div>
 
-    <div class="search-menu">
-        <input type="search" placeholder="Search Avocado...">
-
-        <div class="btn-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-
-
+    <div class="btn-search">
+        <i  class="fa-solid fa-magnifying-glass  " ></i>
     </div>
+
+  
+    
 
     <div class="username-menu">
 
@@ -64,6 +60,28 @@
 
 
 </header>
+
+<div class="search-menu">
+    <input type="search" class="input-find" placeholder="Find your Avocado...">
+
+    
+</div>
+
+<div class="results">
+    <!-- <li><a href=""> <i  class="fa-solid fa-magnifying-glass " ></i>Fuerte Avocado</a> </li>
+    <li><a href=""> <i  class="fa-solid fa-magnifying-glass " ></i >Fuerte Avocado</a> </li>
+    <li><a href=""> <i  class="fa-solid fa-magnifying-glass " ></i>Fuerte Avocado</a> </li>
+    <li><a href=""> <i  class="fa-solid fa-magnifying-glass " ></i>Fuerte Avocado</a> </li>
+    <li><a href=""> <i  class="fa-solid fa-magnifying-glass" ></i>Fuerte Avocado</a> </li>
+    <li><a href=""> <i  class="fa-solid fa-magnifying-glass" ></i>Fuerte Avocado</a> </li> -->
+
+</div>
+
+
+
+<div class="cover"></div>
+
+
 
   <div class="container">
 
@@ -134,27 +152,7 @@
 
 </body>
 
-<!--<script>-->
-<!--    let mainLocation = window.pageYOffset-->
-<!--    let $nav = document.querySelector('.ul-menu');-->
-
-<!--    window.addEventListener('scroll', scrolling);-->
-
-<!--    function scrolling() {-->
-<!--        let locationGet = window.pageYOffset;-->
-<!--        console.log(locationGet);-->
-
-<!--        if (mainLocation >= locationGet) {-->
-<!--            $nav.style.top = "0px";-->
-
-<!--        } else {-->
-<!--            $nav.style.top = "-80px";-->
-<!--        }-->
-
-<!--        mainLocation = locationGet;-->
-<!--    }-->
-<!--</script>-->
 <script src="/src/Services/details.js" type="module"></script>
-<script src="/src/Services/scroll.js" type="module"></script>
-
+<!-- <script src="/src/Services/scroll.js" type="module"></script> -->
+<script src="/src/Services/search.js"></script>
 </html>
