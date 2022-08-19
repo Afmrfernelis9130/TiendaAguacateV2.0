@@ -1,4 +1,4 @@
-import {price} from "./inputValid.js" ;
+import {price} from "./inputValid2.js" ;
     
     
     const API = 'https://platzi-avo.vercel.app';
