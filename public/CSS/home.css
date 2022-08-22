@@ -407,3 +407,11 @@ body{
 
 
 /*****/
+
+.element-details{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: flex-end;
+    flex-direction: row;
+}
