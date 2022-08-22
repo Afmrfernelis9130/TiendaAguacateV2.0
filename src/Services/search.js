@@ -1,3 +1,5 @@
+
+
 //Variables
 const btnSearh = document.querySelector(".btn-search"); //Boton
 const searhMenu = document.querySelector(".search-menu");//Barra de busqueda
