@@ -55,10 +55,66 @@ body{
     
 }
 
+.ul-menu .img-bar {
+    display: none;
+    width: 25px;
+    height:25px;
+    transform: translateY(1px);
+    transform: translateX(-90px);
+    
+}
+
+
+.about-menu-aside .about-menu-img {
+    width: 60px;
+    height: 60px;
+}
 
 .about-menu {
     transform:translateX(100px);
 }
+
+.about-menu-aside{
+    display: flex;
+    justify-content: center;
+    margin-top: 62px;
+    width: 170px;
+    height: 300px;
+    position: absolute;
+    left: 0;
+    top: -300px;
+    z-index: 10;
+    box-shadow: 1px 1px 2px 2px rgba(34,36,38,.15); 
+    border-radius: 5px;
+    background: #F7F7F7;
+    transition: all 600ms;
+   
+ }
+
+ .about-menu-aside .username-menu {
+     display: flex;
+     justify-content: center;
+
+    
+ }
+ 
+ .about-menu-aside .nav{
+    
+     display: flex;
+     flex-direction: column;
+     list-style-type: none;
+     margin-top: 100px;
+     margin-left: -250px;
+ 
+ }
+
+ .about-menu-aside .nav img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+ }
+ 
+
 
 .about-menu .nav{
    display: flex;
@@ -66,9 +122,12 @@ body{
    align-items: center;
 }
 
+.about-menu-aside .item_li,
 .about-menu .item_li{
     margin:15px;
 }
+
+.about-menu-aside .item_a,
 .about-menu .item_a{
     display: flex;
     font-weight: 600;
@@ -76,13 +135,13 @@ body{
     font-size: 13px;
     color: #000000;
     position: relative;
-    padding: 5px 15px 5px 15px;
+    padding: 5px 15px 5px 16px;
     overflow: hidden;
     text-transform: uppercase;
 
 
 }
-
+.about-menu-aside .item_a:before,
 .about-menu .item_a:before{
     content: '';
     position: absolute;
@@ -94,6 +153,7 @@ body{
     transition: .5s cubic-bezier(0.075, 0.082, 0.165, 1);
 }
 
+.about-menu-aside .item_a:after,
 .about-menu .item_a:after{
     content: '';
     position: absolute;
@@ -104,7 +164,7 @@ body{
     background-color: var(--hospital-green);
     transition: .5s cubic-bezier(0.075, 0.082, 0.165, 1);
 }
-
+ .about-menu-aside .item_a:hover,
 .about-menu .item_a:hover{
     color: var(--hospital-green);
 }
@@ -181,7 +241,7 @@ body{
     
 }
 
-.username-menu .img-bar,
+
 .username-menu .img-carrito {
     width: 25px;
     height:25px;
@@ -189,9 +249,6 @@ body{
 
 }
 
-.username-menu .img-bar{
-    display: none;
-}
 
 
 /* .username-menu .navbar-imgcarrito:hover img {
@@ -537,7 +594,8 @@ body{
         
         
      }
-    
+
+
 }
 
 
@@ -556,6 +614,8 @@ body{
         width: 800px;
     }
 
+  
+
 }
 
 
@@ -564,7 +624,11 @@ body{
 
 @media (max-width:940px) {
 
+    .ul-menu {
+        display: flex;
+        justify-content: center;
 
+    }
     .container{
         margin-top: 100px;
         display:grid;
@@ -609,31 +673,37 @@ body{
         grid-column: 1/2;
 
     }
-
-
-
-
     
     .container{
 
         grid-template-columns:300px 300px  ;
-  
-    
-        
         
     }
 
     .about-menu {
         display: none;
     }
+
+   .ul-menu .username-menu {
+        display: none;
+    }
      
-    .username-menu .img-bar{
+    .ul-menu .img-bar{
         display: block;
+        
+
     }
 
     .btn-search {
-        right: 350px;
+        right: 180px;
     }
+    
+     .ul-menu .img-bar {
+
+        transform: translateX(-250px);
+
+    }
+   
 
 
     .search-menu input{
@@ -645,25 +715,29 @@ body{
 
 
 
-
-
 @media (max-width:690px) {
 
 
     .btn-search {
-        right: 260px;
+        right: 200px;
     }
    
 
-    .ul-menu .img-logo {
-        width: 200px;
-        height:130px;
-        
-    }
+   
 }
 
 
+@media (max-width:724px) {
+    .btn-search {
+        right:70px  ;
+    }
 
+    .ul-menu .img-bar {
+
+        transform: translateX(-120px);
+
+    }
+}
 @media (max-width:640px) {
 
     
@@ -686,7 +760,7 @@ body{
 
 
     .btn-search {
-        right: 220px;
+        right: 60px;
     }
    
 
@@ -695,40 +769,25 @@ body{
 
 
 
+@media (max-width:810px) {
+    .ul-menu .img-bar {
 
+        transform: translateX(-200px);
 
-
-
-
-/* @media  (max-width:1025px) {
-
-    .description-footer{
-    
-        grid-template-columns: 500px ;
-        grid-template-rows: 1fr 200px 200px;
-        
     }
+   
 
-        .description-footer .address{
-            grid-column: 1/1;
-            grid-row: 1/1;
-        }
-        
-        .description-footer .socialmedia{
-           grid-column: 1/1 ;
-           grid-row: 2/3;
-           
-        }
-        
-        .description-footer .ccpay {
-            grid-column: 1/1;
-            grid-row: 3/4 ;
-            
-            
-        }
-        
-        
-       
-        
-    } */
-    
+}
+
+@media (min-width:940px){
+    .about-menu-aside {
+        display: none;
+    }
+}
+
+
+
+
+
+
+

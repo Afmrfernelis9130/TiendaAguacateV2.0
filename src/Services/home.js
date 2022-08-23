@@ -18,8 +18,10 @@ let tableBody = document.createElement("tbody");//cuerpo de la tabla
 const btn= document.getElementById('btn-cart');//BOTON OCULTAR CARRITO
 const element = document.getElementById('element');//elemento para mostrar el carrito
 const inputFind = document.querySelector(".input-find"); // Input para el buscador
-const results  = document.querySelector('.results');
-const btnFind = document.querySelector(".btn-search");
+const results  = document.querySelector('.results'); //Resultados para la busqueda
+const btnFind = document.querySelector(".btn-search"); 
+const barMenu = document.querySelector(".img-bar");
+const asideMenu = document.querySelector(".about-menu-aside")
 
 
 document.addEventListener("DOMContentLoaded", (e)=> {
@@ -241,6 +243,21 @@ const printCarShop = (data) => {
 
 }
 
+
+//Menu aside 
+barMenu.addEventListener("click" , ()=> {
+
+    if (asideMenu.style.top === "-300px"){
+
+        asideMenu.style.top = "10px" ;
+
+    }
+     else {
+        asideMenu.style.top = "-300px";
+
+     }
+
+})
 
 
 
