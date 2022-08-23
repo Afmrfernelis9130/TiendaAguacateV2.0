@@ -5,7 +5,7 @@ import {price} from "./inputValid2.js" ;
 const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
-let cart = [];
+export let cart = [];
 let onclick = false;
 
 
@@ -151,6 +151,12 @@ function addToCart(e, data) {
         element.style.visibility = "visible"
 
         sessionStorage.setItem("cart", JSON.stringify(cart));//Guardamos el carrito en el sessionStorage
+
+        setTimeout(()=> {
+            element.style.visibility = "hidden";
+
+        }, 15000);
+
 
 
     }
