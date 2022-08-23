@@ -6,8 +6,8 @@ const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
 let cart = [];
-let p = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 let onclick = false;
+
 
 
 //Instanciamos la clave para el formato de moneda
@@ -28,11 +28,14 @@ const element = document.getElementById('element');//elemento para mostrar el ca
 document.addEventListener("DOMContentLoaded", (e) => {
 
     e.preventDefault();
-    if (sessionStorage.getItem("cart")) {
-        element.style.visibility = "visible"
 
+    // element.style.visibility = "hidden";
+
+
+    if (sessionStorage.getItem("cart")) {
         let data = JSON.parse(sessionStorage.getItem("cart"))
         printCarShop(data);
+
 
     } else {
 
@@ -128,7 +131,7 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
 //Agregar al carrito
 function addToCart(e, data) {
 
-
+    onclick = true;
     const id = e.target.dataset.id; //Obtenemos el id del aguacate
     const product = data.data.find(product => product.id === id);//Obtenemos el aguacate
     const existing = cart.some(p => p.id === product.id);//Verificamos si el aguacate ya esta en el carrito
@@ -143,14 +146,19 @@ function addToCart(e, data) {
         amount.innerText = cart.length;
 
     }
+    if (onclick) {
 
+        element.style.visibility = "visible"
+
+        sessionStorage.setItem("cart", JSON.stringify(cart));//Guardamos el carrito en el sessionStorage
+
+
+    }
 
     printCarShop(cart);//Pintamos el carrito
 
 
-    sessionStorage.setItem("cart", JSON.stringify(cart));//Guardamos el carrito en el sessionStorage
 
-    // location.reload();
 
 }
 
@@ -219,7 +227,6 @@ const printCarShop = (data) => {
 
 
 }
-
 
 fillCart();
 
