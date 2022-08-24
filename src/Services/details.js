@@ -88,6 +88,19 @@ const detailCard = async () => await fetch(`${API}/api/avo`).then(prueba => prue
         containerChild.append(input, button);
 
 
+        // Eventos
+
+        button.addEventListener("click", () => {
+
+            const cant = amount.innerHTML = array.length + parseInt(input.value);
+            const pric = itemObject.price
+            const result = cant * pric
+
+            price.innerText = `$` +  Math.round(result );
+
+        })
+
+
     });
 
 detailCard();
