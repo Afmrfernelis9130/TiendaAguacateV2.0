@@ -1,13 +1,11 @@
 import {price} from "./inputValid2.js" ;
-import {cart} from "./home";
-// import {array} from "./home.js"
+
 
 const API = 'https://platzi-avo.vercel.app';
 
 const stringItem = localStorage.getItem('item')
 const itemObject = JSON.parse(stringItem);
-const amount = document.getElementById('amount');//cantidad de productos
-let array= JSON.parse(sessionStorage.getItem("cart"))
+let array = JSON.parse(sessionStorage.getItem("cart"))
 
 //Formato de precio
 const priceFormat = new price();
@@ -16,6 +14,7 @@ const container = document.querySelector(".container");
 //Seleccionar el contenedor de los atributos
 
 const containerAttributes = document.querySelector(".containerAttributes");
+const amount = document.querySelector('.amount');//cantidad de productos
 
 const detailCard = async () => await fetch(`${API}/api/avo`).then(prueba => prueba.json())
     .then(data => {
@@ -94,13 +93,18 @@ const detailCard = async () => await fetch(`${API}/api/avo`).then(prueba => prue
 detailCard();
 
 
+function detailCard2() {
+
+
+    amount.innerHTML = array.length;
+
+}
+
+
+detailCard2();
 
 
 
-
-amount.innerText = array.length;
-
-console.log(array.length)
 
              
           
