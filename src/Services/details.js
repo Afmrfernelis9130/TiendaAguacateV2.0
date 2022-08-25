@@ -153,11 +153,12 @@ function viewDetails(data, inputNumber, tagPrice, objPrice) {
                 tagPrice.innerText = `$` + Math.round(objPrice * items.quantity)
 
 
-            }else {
-                const  wrongFoundError = TypeError("this article does not exist")
-
-                alert(wrongFoundError)
             }
+            // else {
+            //     const  wrongFoundError = TypeError("this article does not exist")
+            //
+            //     alert(wrongFoundError)
+            // }
 
 
 
