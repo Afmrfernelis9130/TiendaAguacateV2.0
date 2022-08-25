@@ -430,7 +430,7 @@ body{
     display: grid;
     justify-content: center;
     grid-template-columns: 500px 500px 400px ;
-    grid-template-rows: 1fr 200px;
+    grid-template-rows: 1fr 200px ;
     column-gap: -50px;
     width: 100%;
     height: 250px;
@@ -456,8 +456,8 @@ body{
 }
 
 .description-footer .ccpay {
-    grid-column: 3/4;
-    grid-row: 2/3 ;
+    grid-column: 4/5;
+    grid-row: 5/6 ;
     
     
 }
@@ -502,6 +502,71 @@ body{
     height: 40px;
 }
 
+
+
+
+
+
+/*Responsive Details*/
+
+@media (max-width:875px) {
+
+
+    .card img {
+        width: 350px;
+        height: 350px;
+    }
+
+
+}
+
+
+@media (max-width:860px) {
+
+
+    .card img {
+        width: 300px;
+        height: 300px;
+        grid-row: 1/2;
+    }
+    
+    .card {
+        grid-template-rows: 250px 25px 80px 180px 30px ;
+        grid-template-columns:450px ;
+    }
+
+    .card .name-description {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        
+    }
+
+    .card .desc-description {
+        grid-column: 1/2;
+        grid-row: 3/4;
+ 
+    }
+      
+    .card .containerAttributes{
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+
+
+   
+    .card .price-description{
+        grid-column: 1/2;
+        grid-row: 5/6;
+    }
+
+    
+    .card .addAmount {
+        grid-column: 1/2;
+        grid-row: 6/7;
+
+    }
+
+}
 
 
 

@@ -20,8 +20,9 @@ const element = document.getElementById('element');//elemento para mostrar el ca
 const inputFind = document.querySelector(".input-find"); // Input para el buscador
 const results  = document.querySelector('.results'); //Resultados para la busqueda
 const btnFind = document.querySelector(".btn-search"); 
-const barMenu = document.querySelector(".img-bar");
-const asideMenu = document.querySelector(".about-menu-aside")
+const barMenu = document.querySelector(".img-bar"); // Barra para mostrar el menu lateral
+const asideMenu = document.querySelector(".about-menu-aside"); // menu leteral
+const closeBar = document.querySelector(".img-close");
 
 
 document.addEventListener("DOMContentLoaded", (e)=> {
@@ -244,22 +245,40 @@ const printCarShop = (data) => {
 }
 
 
-//Menu aside 
+//Mostrar menu lateral
 barMenu.addEventListener("click" , ()=> {
 
-    if (asideMenu.style.top === "-300px"){
+    if (asideMenu.style.left === "-1700px"){
 
-        asideMenu.style.top = "10px" ;
+        asideMenu.style.left = "0px" ;
 
     }
      else {
-        asideMenu.style.top = "-300px";
+        asideMenu.style.left = "-1700px";
 
      }
 
 })
 
+//Cerrar menu laterar 
 
+closeBar.addEventListener('click' , ()=>{
+    if (asideMenu.style.left === "0px"){
+        
+        asideMenu.style.left = "-1700px" ;
+
+    }
+})
+
+//Menu laterarl 
+
+asideMenu.addEventListener("click" , ()=>{
+    if (asideMenu.style.left === "0px"){
+        
+        asideMenu.style.left = "-1700px" ;
+
+    }
+})
 
 fillCart();
 
