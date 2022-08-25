@@ -21,9 +21,7 @@ const btn = document.getElementById('btn-cart');//BOTON OCULTAR CARRITO
 const element = document.getElementById('element');//elemento para mostrar el carrito
 
 
-//Crear variable para agregar al carrito
-//  var Turbolinks = require ("turbolinks");
-//  Turbolinks.start();
+
 
 document.addEventListener("DOMContentLoaded", (e) => {
 
@@ -105,6 +103,8 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
                 button.textContent = "Add";
                 button.dataset.id = element.id;
 
+
+
                 //Lo inyectamos en el doc html
                 container.appendChild(cuerpo);
                 cuerpo.append(img, name, description, price, button);
@@ -167,7 +167,6 @@ function addToCart(e, data) {
 
 
 }
-
 
 //FUNCION PARA VER EL DETALLE DEL PRODUCTO
 function viewProduct(e) {
