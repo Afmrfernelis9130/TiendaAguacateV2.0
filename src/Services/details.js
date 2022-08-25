@@ -5,7 +5,10 @@ const API = 'https://platzi-avo.vercel.app';
 
 const stringItem = localStorage.getItem('item')
 const itemObject = JSON.parse(stringItem);
-let array = JSON.parse(sessionStorage.getItem("cart"))
+
+
+let array = JSON.parse(sessionStorage.getItem("cart"))//buscar datos en el sessonStorage
+
 
 //Formato de precio
 const priceFormat = new price();
@@ -13,11 +16,20 @@ const priceFormat = new price();
 const container = document.querySelector(".container");
 //Seleccionar el contenedor de los atributos
 
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    amount.innerHTML = array.length;
+
+
+})
+
 const containerAttributes = document.querySelector(".containerAttributes");
 const amount = document.querySelector('.amount');//cantidad de productos
 
 const detailCard = async () => await fetch(`${API}/api/avo`).then(prueba => prueba.json())
     .then(data => {
+        const precio = itemObject.price;
         let arry = data.data.find(id => id.id === '2zd33b8c');
 
         //Crear una carta
@@ -92,13 +104,11 @@ const detailCard = async () => await fetch(`${API}/api/avo`).then(prueba => prue
 
         button.addEventListener("click", () => {
 
-            const cant = amount.innerHTML = array.length + parseInt(input.value);
-            const pric = itemObject.price
-            const result = cant * pric
-
-            price.innerText = `$` +  Math.round(result );
+            addToCart(itemObject, input, price, precio)
 
         })
+
+        viewDetails(itemObject, input, price, precio)
 
 
     });
@@ -106,20 +116,63 @@ const detailCard = async () => await fetch(`${API}/api/avo`).then(prueba => prue
 detailCard();
 
 
-function detailCard2() {
+function addToCart(data, inputNumber, tagPrice, objPrice) {
 
 
-    amount.innerHTML = array.length;
-
-}
+    array.forEach(items => {
 
 
-detailCard2();
+        if (items.id === data.id) {
+
+
+            tagPrice.innerText = `$` + Math.round(objPrice * inputNumber.value)
+
+
+        }
+
+
+    })
+
+
+} //agrega producro al carrito
+
+function viewDetails(data, inputNumber, tagPrice, objPrice) {
+
+
+
+    array.forEach(items => {
 
 
 
 
-             
-          
+            if (items.id === data.id) {
+
+
+                inputNumber.value = items.quantity
+
+                tagPrice.innerText = `$` + Math.round(objPrice * items.quantity)
+
+
+            }else {
+                const  wrongFoundError = TypeError("this article does not exist")
+
+                alert(wrongFoundError)
+            }
+
+
+
+
+
+
+    })
+
+
+} //te muestra el precio y la cantidad del producto
+
+
+
+
+
+
           
         
