@@ -411,8 +411,6 @@ body {
 .divDeslizante {
     display: flex;
     justify-content: flex-end;
-    /*align-items: flex-end;*/
-    /*align-content: flex-end;*/
     flex-direction: column;
     width: 250px;
     height: 200px;

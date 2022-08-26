@@ -128,6 +128,10 @@ function addToCart(data, inputNumber, tagPrice, objPrice) {
             tagPrice.innerText = `$` + Math.round(objPrice * inputNumber.value)
 
 
+        }else{
+
+            tagPrice.innerText = `$` + Math.round(objPrice * inputNumber.value)
+
         }
 
 
