@@ -75,7 +75,7 @@ body{
     top: 0;
     z-index: 12;
     background-color: rgba(0, 0, 0, 0.5);
-   
+   position: fixed;
     
  
     
@@ -156,7 +156,7 @@ body{
 }
 
 .about-menu .item_li{
-    margin:30px;
+    margin:10px;
 }
 
 

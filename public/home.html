@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="/public/CSS/home.css">
     <script src="https://kit.fontawesome.com/0f23cb2a80.js" crossorigin="anonymous"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js"></script> -->
+    <link rel="stylesheet" href="/public/CSS/loading.css">
 
     <title>Home</title>
 </head>
 <body>
+
+
+    
+
 
 <header class="ul-menu">
 
@@ -59,7 +64,7 @@
     
   
 </header>
-
+<div class="lds-ring  loader"><div></div><div></div><div></div><div></div></div>
 <div class="search-menu">
     <input type="search" class="input-find" placeholder="Find your Avocado...">
 
@@ -83,6 +88,7 @@
         <li class="item_li"><a class="item_a" href="./about.html"> <img src="./Asset/logos/house-chimney-solid.svg" alt=""> About us</a></li>
         <li class="item_li"><a class="item_a" href="./location.html"> <img src="./Asset/logos/location-dot-solid.svg" alt=""> Location</a></li>
         <li class="item_li"><a class="item_a" href="/"> <img src="./Asset/logos/headset-solid.svg" alt=""> Support</a></li>
+
 
         <img class="img-close" src="./Asset/logos/xmark-solid.svg" alt="">
     </ul>
@@ -196,6 +202,7 @@
 <script src="/src/Services/home.js" type="module"></script>
 <!-- <script src="/src/Services/scroll.js" type="module"></script> -->
 <script src="/src/Services/inputValid2.js" type="module"></script>
+<script src="/src/Services/loading.js"></script>
 
 
 </body>
