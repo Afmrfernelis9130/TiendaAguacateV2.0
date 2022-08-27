@@ -955,11 +955,11 @@ body{
 
 
 /*Min Width*/
-/* @media (min-width:940px){
+@media (min-width:940px){
     .about-menu-aside {
         display: none;
     }
-} */
+}
 
 
 
