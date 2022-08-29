@@ -46,8 +46,6 @@ if(!onclick) {
 
 });//PONE VISIBLE EL DETALLE DEL CARRITO
 
-
-
 //Funcion para mostar los aguacates
 
 
@@ -145,7 +143,7 @@ function viewProduct(e) {
             .then(data => {
                     e.preventDefault();
                     localStorage.setItem('item', JSON.stringify(data));
-                    window.location.href = '/public/details.html';
+                    window.location.href = 'details.html';
 
 
                     // Turbolinks.visit =('/public/details.html');

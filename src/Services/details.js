@@ -1,4 +1,4 @@
-import {price} from "./inputValid.js" ;
+import {price} from "./inputValid2.js" ;
 
     //Variables 
     const inputFind = document.querySelector(".input-find");
