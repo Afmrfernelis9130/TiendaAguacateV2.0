@@ -1,12 +1,14 @@
 import {price} from "./inputValid2.js" ;
 
+
 //LLAMADA A LA API PARA OBTENER LOS DATOS
 const API = 'https://platzi-avo.vercel.app';
 
-//variables
-const search = [];
-let cart = [];
+//variables para el carrito
+export let cart = [];
 let onclick = false;
+
+
 
 //Instanciamos la clave para el formato de moneda
 const priceFormat = new price();
@@ -15,31 +17,51 @@ const container = document.querySelector(".container");
 const amount = document.getElementById('amount');//cantidad de productos
 let table = document.querySelector("table");//tabla de productos
 let tableBody = document.createElement("tbody");//cuerpo de la tabla
-const btn= document.getElementById('btn-cart');//BOTON OCULTAR CARRITO
+const btn = document.getElementById('btn-cart');//BOTON OCULTAR CARRITO
 const element = document.getElementById('element');//elemento para mostrar el carrito
 const inputFind = document.querySelector(".input-find"); // Input para el buscador
 const results  = document.querySelector('.results'); //Resultados para la busqueda
-const btnFind = document.querySelector(".btn-search"); 
+const btnFind = document.querySelector(".btn-search");
 const barMenu = document.querySelector(".img-bar"); // Barra para mostrar el menu lateral
 const asideMenu = document.querySelector(".about-menu-aside"); // menu leteral
 const closeBar = document.querySelector(".img-close");
 
 
-document.addEventListener("DOMContentLoaded", (e)=> {
+//Crear variable para agregar al carrito
+//  var Turbolinks = require ("turbolinks");
+//  Turbolinks.start();
 
-    element.style.visibility = "hidden";
+document.addEventListener("DOMContentLoaded", (e) => {
+
+    e.preventDefault();
+
+    // element.style.visibility = "hidden";
+
+
+    if (sessionStorage.getItem("cart")) {
+        let data = JSON.parse(sessionStorage.getItem("cart"))
+        printCarShop(data);
+
+
+    } else {
+
+        element.style.visibility = "hidden"
+
+    }
+
 
 });//DOMContentLoaded
 
-btn.addEventListener('click',()=>{
+btn.addEventListener('click', () => {
 
-if(!onclick) {
-    element.style.visibility = "visible";
-    onclick = true;
-}else if (onclick) {
-    element.style.visibility = "hidden";
-    onclick = false;
-}
+
+    if (!onclick) {
+        element.style.visibility = "visible";
+        onclick = true;
+    } else if (onclick) {
+        element.style.visibility = "hidden";
+        onclick = false;
+    }
 
 
 
@@ -48,21 +70,19 @@ if(!onclick) {
 
 //Funcion para mostar los aguacates
 
-
-// const response = await fetch(`${API}/api/avo`);
-// await response.json();
-// console.log();
-
+//FUNCION PARA PINTAR EL CARRITO
 const fillCart = async () => await fetch(`${API}/api/avo`)
     .then(data => data.json())
-    .then(data => {            
-            // const value = document.querySelector('.value');
-                data.data.forEach(element => {
-                search.push(element)
+    .then(data => {
+            //Seleccionar el contenedor***
+            const container = document.querySelector(".container");
+            const value = document.querySelector('.value');
+            data.data.forEach(element => {
                 //Creamos las cartas que estaran dentro del container
                 const cuerpo = document.createElement("div");
                 cuerpo.classList.add("card");
                 cuerpo.dataset.id = element.id;
+
 
                 //Adanimos la imagen de aguacate en la carta
                 const img = document.createElement("img");
@@ -99,10 +119,18 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
                 cuerpo.append(img, name, description, price, button);
 
                 //Eventos con los botones
-                cuerpo.addEventListener('click', (e) => {viewProduct(e)});
+                cuerpo.addEventListener('click', (e) => {
+
+                    viewProduct(e)
+                });
+
                 name.addEventListener('click', viewProduct);
-                inputFind.addEventListener('keyup', findAvocado);
-                button.addEventListener('click', (e) => { addToCart(e, data);});
+                button.addEventListener('click', (e) => {
+
+                    addToCart(e, data);
+                });
+
+
             }).catch(Error => console.error(Error));
 
 
@@ -111,25 +139,39 @@ const fillCart = async () => await fetch(`${API}/api/avo`)
 
 //Agregar al carrito
 function addToCart(e, data) {
+
+    onclick = true;
     const id = e.target.dataset.id; //Obtenemos el id del aguacate
     const product = data.data.find(product => product.id === id);//Obtenemos el aguacate
     const existing = cart.some(p => p.id === product.id);//Verificamos si el aguacate ya esta en el carrito
-    
 
 
+    if (existing) {
 
-    if(existing){
+        cart.find(p => p.id === product.id).quantity++;//Si el aguacate ya esta en el carrito, aumentamos la cantidad
 
-       cart.find(p => p.id === product.id).quantity++;//Si el aguacate ya esta en el carrito, aumentamos la cantidad
-    }
-    else {
+    } else {
         cart.push({...product, quantity: 1});//Si el aguacate no esta en el carrito, lo agregamos al carrito con una cantidad de 1
         amount.innerText = cart.length;
+
+    }
+    if (onclick) {
+
+        element.style.visibility = "visible"
+
+        sessionStorage.setItem("cart", JSON.stringify(cart));//Guardamos el carrito en el sessionStorage
+
+        setTimeout(()=> {
+            element.style.visibility = "hidden";
+
+        }, 15000);
+
+
+
     }
 
-
-
     printCarShop(cart);//Pintamos el carrito
+
 
 
 
@@ -160,54 +202,11 @@ function viewProduct(e) {
 
 }
 
-//Funcion para buscar los aguacates
-export function findAvocado () {
-    //Variables
-    results.innerHTML='';
-    results.style.display = "block";
-    const text = inputFind.value.toLowerCase(); //Lo llevamos a minusculas
-    const namesAvocados = newArrayAvocado(); // Tomamos el nuevo array
-   
-    ///////
-    function newArrayAvocado (){
-
-        let newAvocados = []
-        search.forEach(element =>{
-               newAvocados.push(element.name);
-              
-        }  ); return newAvocados;
-    
-            
-    }
-  
- 
-     namesAvocados.forEach(name =>{ 
-        let aguacate = name.toLowerCase();
-        if (aguacate.indexOf(text) !== -1){
-
-            results.innerHTML += `<li><a href=""> <i  class="fa-solid fa-magnifying-glass " ></i>${name}</a> </li>` 
-
-        }
-        
-        if (inputFind.value ==''){
-            results.style.display = "none";
-    
-        }
-        
-     })
-
-  
-  
-   
-
-    
-    
-};
-
 //FUNCION PARA IMPRIMIR EL CARRITO
 const printCarShop = (data) => {
 
     tableBody.innerHTML = "";
+
 
     data.forEach((item) => {
         let fila = document.createElement("tr");
@@ -230,7 +229,7 @@ const printCarShop = (data) => {
 
 
         td = document.createElement("td");
-        td.innerHTML =Math.round(item.price * item.quantity);
+        td.innerHTML = Math.round(item.price * item.quantity);
         fila.appendChild(td);
 
         tableBody.appendChild(fila);
@@ -258,25 +257,26 @@ barMenu.addEventListener("click" , ()=> {
 
 })
 
-//Cerrar menu laterar 
+//Cerrar menu laterar
 
 closeBar.addEventListener('click' , ()=>{
     if (asideMenu.style.left === "0px"){
-        
+
         asideMenu.style.left = "-1700px" ;
 
     }
 })
 
-//Menu laterarl 
+//Menu laterarl
 
 asideMenu.addEventListener("click" , ()=>{
     if (asideMenu.style.left === "0px"){
-        
+
         asideMenu.style.left = "-1700px" ;
 
     }
 })
+}
 
 fillCart();
 

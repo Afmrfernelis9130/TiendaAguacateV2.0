@@ -149,20 +149,20 @@ function viewDetails(data, inputNumber, tagPrice, objPrice) {
 
 
 
-        if (items.id === data.id) {
+            if (items.id === data.id) {
 
 
-            inputNumber.value = items.quantity
+                inputNumber.value = items.quantity
 
-            tagPrice.innerText = `$` + Math.round(objPrice * items.quantity)
+                tagPrice.innerText = `$` + Math.round(objPrice * items.quantity)
 
 
-        }
-        // else {
-        //     const  wrongFoundError = TypeError("this article does not exist")
-        //
-        //     alert(wrongFoundError)
-        // }
+            }
+            // else {
+            //     const  wrongFoundError = TypeError("this article does not exist")
+            //
+            //     alert(wrongFoundError)
+            // }
 
 
 
@@ -178,10 +178,6 @@ function viewDetails(data, inputNumber, tagPrice, objPrice) {
 
 
 
-            
 
-
-             
-          
           
         

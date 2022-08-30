@@ -1,38 +1,36 @@
-let cantidad = 0;
 
-const cart=[
-
-        {
-
-            name: "Samsung Galaxy S10",
-            price: "Rs. 6,999",
-            image:  "dfasdfsdf",
-
-
-        }
-
+const product =[
+    {
+        "id": 1,
+        "name": "Product 1",
+        "price": 100,
+    },
+    {
+        "id": 2,
+        "name": "Product 2",
+        "price": 200,
+    },
+    {
+        "id": 3,
+        "name": "Product 3",
+        "price": 300,
+    }
 ]
 
-const prueba=[];
+const newArrays = []
 
-prueba.push({
+let str;
 
+function getProduct(name){
 
-    name: "Samsung Galaxy S10",
-    price: "Rs. 6,999",
-    image:  "dfasdfsdf",
-    cantidad: cantidad + 2
-
-
-})
+ console.log(product.find(product => product.name === name))
 
 
 
 
-cart.forEach(element => {
-    console.log(element);
-})
 
-prueba.forEach(element => {
-    console.log(element);
-})
+
+}
+
+
+getProduct("Product 1");

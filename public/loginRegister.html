@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/loginRegister.css">
+
+    <title>Welcome</title>
+</head>
+<body>
+
+    <div class="container">
+
+       <main>
+
+    
+        <div class="back-box">
+
+            <div class="backlogin">
+                <h3>Ya tienes una cuenta ?</h3>
+                <p>inicia sesion para entrar a la pagina</p>
+                <button id="btn-start-login">Start Login</button>
+            </div>
+
+
+            <div class="backregister">
+                <h3>Aun no tienes cuenta?</h3>
+                <p>Registrate para que puedas iniciar sesion </p>
+                <button id="btn-start-register">Start Register</button>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="container-login-register">
+            <form action="" class="form-login">
+
+                <h1>Login </h1>
+                <input type="text" placeholder="Email" id="login-email">
+                <input type="password" placeholder="Password" id="login-password">
+                <button class="btn-login" id="btn-login">Login</button>
+            </form>
+
+            <form action="" class="form-register">
+                <h2>Register</h2>
+
+                <input type="text" placeholder="Full Name" id="register-fullname">
+                <input type="text" placeholder="Email" id="register-email">
+                <input type="text" placeholder="Username" id="register-username">
+                <input type="password" placeholder="Password" id="register-password">
+                <input type="password" placeholder="Confirm Password" id="register-password2">
+                <button id="btn-register">Register</button>
+            </form>
+        </div>
+         </main>
+    </div>
+
+
+    <script src="/src/Services/transition.js"></script>
+    <script src="/src/Services/loginRegister.js"></script>
+
+
+</body>
+
+</html>
