@@ -9,12 +9,6 @@ const inputFind = document.querySelector(".input-find");// Input para el buscado
 
 
 
-
-
-
-
-
-
 btnSearh.addEventListener('click',()=>{
     searhMenu.style.top = "70px";
     cover.style.display = "block";

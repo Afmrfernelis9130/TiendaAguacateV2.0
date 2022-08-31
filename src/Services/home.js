@@ -5,7 +5,8 @@ import {price} from "./inputValid2.js" ;
 const API = 'https://platzi-avo.vercel.app';
 
 //variables para el carrito
-export let cart = [];
+const search = [];
+ let cart = [];
 let onclick = false;
 
 
@@ -27,9 +28,6 @@ const asideMenu = document.querySelector(".about-menu-aside"); // menu leteral
 const closeBar = document.querySelector(".img-close");
 
 
-//Crear variable para agregar al carrito
-//  var Turbolinks = require ("turbolinks");
-//  Turbolinks.start();
 
 document.addEventListener("DOMContentLoaded", (e) => {
 
@@ -68,15 +66,58 @@ btn.addEventListener('click', () => {
 
 });//PONE VISIBLE EL DETALLE DEL CARRITO
 
-//Funcion para mostar los aguacates
+//Funcion para buscar los aguacates
+
+export function findAvocado () {
+    //Variables
+    results.innerHTML='';
+    results.style.display = "block";
+    const text = inputFind.value.toLowerCase(); //Lo llevamos a minusculas
+    const namesAvocados = newArrayAvocado(); // Tomamos el nuevo array
+
+    ///////
+    function newArrayAvocado (){
+
+        let newAvocados = []
+        search.forEach(element =>{
+            newAvocados.push(element.name);
+
+        }  ); return newAvocados;
+
+
+    }
+
+
+    namesAvocados.forEach(name =>{
+        let aguacate = name.toLowerCase();
+        if (aguacate.indexOf(text) !== -1){
+
+            results.innerHTML += `<li><a href=""> <i  class="fa-solid fa-magnifying-glass " ></i>${name}</a> </li>`
+
+        }
+
+        if (inputFind.value ===''){
+            results.style.display = "none";
+
+        }
+
+    })
+
+
+
+
+
+
+
+};
+
+
 
 //FUNCION PARA PINTAR EL CARRITO
 const fillCart = async () => await fetch(`${API}/api/avo`)
     .then(data => data.json())
     .then(data => {
-            //Seleccionar el contenedor***
-            const container = document.querySelector(".container");
-            const value = document.querySelector('.value');
+
             data.data.forEach(element => {
                 //Creamos las cartas que estaran dentro del container
                 const cuerpo = document.createElement("div");
@@ -242,7 +283,7 @@ const printCarShop = (data) => {
 }
 
 
-//Mostrar menu lateral
+// Mostrar menu lateral
 barMenu.addEventListener("click" , ()=> {
 
     if (asideMenu.style.left === "-1700px"){
@@ -276,7 +317,8 @@ asideMenu.addEventListener("click" , ()=>{
 
     }
 })
-}
+
+inputFind.addEventListener('keyup',()=>{findAvocado});
 
 fillCart();
 

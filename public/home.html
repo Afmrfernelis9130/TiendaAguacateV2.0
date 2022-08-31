@@ -11,11 +11,15 @@
 
     <title>Home</title>
 </head>
+
 <body>
 
 
-
 <header class="ul-menu">
+
+    <div class="img-bar">
+        <img src="./Asset/logos/bars-solid.svg" alt="">
+    </div>
 
     <div class="logo">
 
@@ -37,7 +41,7 @@
     </div>
 
     <div class="btn-search">
-        <i  class="fa-solid fa-magnifying-glass  " ></i>
+        <i class="fa-solid fa-magnifying-glass  "></i>
     </div>
 
     <div class="username-menu">
@@ -50,7 +54,8 @@
         <div class="navbar-imgcarrito">
             <div class="amount" id="amount">0</div>
 
-            <img class="img-carrito" src="./Asset/logos/CartMajor.svg" alt="carrito-de-compras" type="button" id="btn-cart">
+            <img class="img-carrito" src="./Asset/logos/CartMajor.svg" alt="carrito-de-compras" type="button"
+                 id="btn-cart">
 
         </div>
 
@@ -59,41 +64,60 @@
 
 </header>
 
+<div class="search-menu">
+    <input type="search" class="input-find" placeholder="Find your Avocado...">
+
+
+</div>
 
 <div class="container">
 
 
+</div>
+
+<div class="element-details" id="element">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">PRODUCTO</th>
+            <th scope="col">IMAGEN</th>
+            <th scope="col">CANTIDAD</th>
+            <th scope="col">TOTAL</th>
+        </tr>
+        </thead>
+
+    </table>
 
 
 </div>
 
 
+<aside class="about-menu-aside ">
 
-    <div class="element-details" id="element" >
+    <ul class="nav">
 
-        <table class="table" >
-            <thead>
-            <tr>
-                <th scope="col">PRODUCTO</th>
-                <th scope="col">IMAGEN</th>
-                <th scope="col">CANTIDAD</th>
-                <th scope="col">TOTAL</th>
-            </tr>
-            </thead>
+        <div class="navbar-imgprofile">
+            <img class="img-profile" src="./Asset/logos/circle-user-solid.svg" alt="">
+            <p> My account</p>
+        </div>
 
-        </table>
-
-
-
-
-    </div>
+        <li class="item_li"><a class="item_a" href="./about.html"> <img src="./Asset/logos/house-chimney-solid.svg"
+                                                                        alt=""> About us</a></li>
+        <li class="item_li"><a class="item_a" href="./location.html"> <img src="./Asset/logos/location-dot-solid.svg"
+                                                                           alt=""> Location</a></li>
+        <li class="item_li"><a class="item_a" href="/"> <img src="./Asset/logos/headset-solid.svg" alt=""> Support</a>
+        </li>
 
 
+        <img class="img-close" src="./Asset/logos/xmark-solid.svg" alt="">
+    </ul>
 
-<aside class="card-aside">
+</aside>
 
+<div class="cover">
 
-
+</div>
 
 
 <footer class="description-footer">
@@ -132,14 +156,14 @@
         <a href=""><img src="./Asset/logos/footerImage/twitterFooter.svg" alt=""></a>
     </div>
 
-     <h1 class="title-contactus">Contact Us</h1>
+    <h1 class="title-contactus">Contact Us</h1>
 
-      <div class="contactus">
-        <p><img  src="./Asset/logos/at-solid.svg" alt=""> alexsancastg@gmail.com </p>
+    <div class="contactus">
+        <p><img src="./Asset/logos/at-solid.svg" alt=""> alexsancastg@gmail.com </p>
 
         <p><img src="./Asset/logos/phone-solid.svg" alt=""> 809-406-2976 / 809-8130337</p>
 
-      </div>
+    </div>
 
 
 </footer>
@@ -151,10 +175,6 @@
 </div>
 
 
-
-
-
-
 <script src="/src/Services/search.js"></script>
 <script src="/src/Services/home.js" type="module"></script>
 <script src="/src/Services/scroll.js" type="module"></script>
@@ -162,4 +182,6 @@
 
 
 </body>
+
+
 </html>
